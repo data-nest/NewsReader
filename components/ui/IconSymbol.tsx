@@ -13,12 +13,15 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  'newspaper': 'newspaper', // Added newspaper icon mapping
+  'person': 'person', // Added user icon mapping
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
     React.ComponentProps<typeof MaterialIcons>['name']
   >
 >;
+
 
 export type IconSymbolName = keyof typeof MAPPING;
 
@@ -31,13 +34,11 @@ export function IconSymbol({
   name,
   size = 24,
   color,
-  style,
 }: {
   name: IconSymbolName;
   size?: number;
   color: string | OpaqueColorValue;
-  style?: StyleProp<ViewStyle>;
   weight?: SymbolWeight;
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
+  return <MaterialIcons color={color} size={size} name={MAPPING[name]} />;
 }
